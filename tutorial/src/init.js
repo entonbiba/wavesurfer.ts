@@ -5,6 +5,7 @@ const onSetContent = () => {
   const code = getContent()
   const html = (code.replace(/\n/g, '').match(/<html>(.+)<\/html>/) || [])[1] || ''
   const script = code.replace(/<\/?script>?/g, '')
+  const isBabel = script.includes('@babel')
 
   document.getElementById('preview').srcdoc = `
 <!DOCTYPE html>
@@ -27,7 +28,7 @@ const onSetContent = () => {
   <body>
     ${html}
 
-    <script type="module">
+    <script type="${isBabel ? 'text/babel' : 'module'}" data-type="module">
       ${script}
     </script>
   </body>
