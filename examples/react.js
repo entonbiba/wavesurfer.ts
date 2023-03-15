@@ -10,7 +10,7 @@
 // Import useWavesurfer hook
 import useWavesurfer from '/dist/react/useWavesurfer.js'
 // Import React stuff
-const { createElement: jsx, useRef, useState, useEffect, useCallback } = React
+const { useRef, useState, useEffect, useCallback } = React
 
 // Create a React component that will render wavesurfer.
 // Props are wavesurfer options.
@@ -45,7 +45,7 @@ const WaveSurferPlayer = (props) => {
   }, [props, wavesurfer])
 
   return (
-    <div>
+    <>
       <div ref={containerRef} />
 
       <button onClick={onPlayClick}>
@@ -53,7 +53,7 @@ const WaveSurferPlayer = (props) => {
       </button>
 
       <p>Seconds played: {currentTime}</p>
-    </div>
+    </>
   )
 }
 
@@ -91,4 +91,4 @@ const App = () => {
 
 // Create a React root and render the app
 const root = ReactDOM.createRoot(document.body)
-root.render(jsx(App))
+root.render(<App />)

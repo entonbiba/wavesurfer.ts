@@ -3,7 +3,12 @@
 // Create a video element
 /*
 <html>
-  <video src="https://wavesurfer-js.org/example/media/nasa.mp4" crossOrigin="anonymous" controls width="100%" />
+  <video
+    src="https://wavesurfer-js.org/example/media/nasa.mp4"
+    crossOrigin="anonymous"
+    controls
+    width="100%"
+  />
 </html>
 */
 
