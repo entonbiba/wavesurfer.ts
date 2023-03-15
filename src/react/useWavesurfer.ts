@@ -1,10 +1,13 @@
 /// <reference types="../../node_modules/@types/react" />
-import WaveSurfer,  { type WaveSurferOptions } from '../index.js'
+import WaveSurfer, { type WaveSurferOptions } from '../index.js'
 
 const { useEffect, useState } = React
 
 // A React hook to use WaveSurfer
-export const useWavesurfer = (containerRef: any, options: WaveSurferOptions): WaveSurfer | null => {
+export const useWavesurfer = (
+  containerRef: { current: HTMLElement },
+  options: WaveSurferOptions,
+): WaveSurfer | null => {
   const [wavesurfer, setWavesurfer] = useState<WaveSurfer | null>(null)
 
   // Initialize wavesurfer when the container mounts
@@ -14,7 +17,7 @@ export const useWavesurfer = (containerRef: any, options: WaveSurferOptions): Wa
 
     const ws = WaveSurfer.create({
       ...options,
-      container: containerRef.current
+      container: containerRef.current,
     })
 
     setWavesurfer(ws)
