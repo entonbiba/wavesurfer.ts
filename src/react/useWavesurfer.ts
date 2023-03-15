@@ -1,4 +1,4 @@
-/// <reference types="../../node_modules/@types/react" />
+/// <reference types="react" />
 import WaveSurfer, { type WaveSurferOptions } from '../index.js'
 
 const { useEffect, useState } = React

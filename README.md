@@ -1,4 +1,4 @@
-# wavesurfer.ts
+# <img src="./tutorial/logo-small.png" alt="logo" height="60" valign="middle" /> wavesurfer.ts
 
 An experimental rewrite of [wavesufer.js](https://github.com/wavesurfer-js/wavesurfer.js) to play around with new ideas.
 
