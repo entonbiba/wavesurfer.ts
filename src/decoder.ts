@@ -1,14 +1,21 @@
-// Web Audio decodeAudioData with a minimum allowed sample rate
-const SAMPLE_RATE = 3000
+const DEFAULT_SAMPLE_RATE = 3000 // Chrome, Safari
+const FALLBACK_SAMPLE_RATE = 8000 // Firefox
 
 class Decoder {
   audioCtx: AudioContext | null = null
 
   constructor() {
-    this.audioCtx = new AudioContext({
-      latencyHint: 'playback',
-      sampleRate: SAMPLE_RATE,
-    })
+    try {
+      this.audioCtx = new AudioContext({
+        latencyHint: 'playback',
+        sampleRate: DEFAULT_SAMPLE_RATE,
+      })
+    } catch (e) {
+      this.audioCtx = new AudioContext({
+        latencyHint: 'playback',
+        sampleRate: FALLBACK_SAMPLE_RATE,
+      })
+    }
   }
 
   public async decode(audioData: ArrayBuffer): Promise<{
